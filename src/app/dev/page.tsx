@@ -1,15 +1,38 @@
-import ThemeToggle from "@/components/layouts/ThemeToggle";
-import ThemeSwitch from "../../components/layouts/ThemeSwitch";
-import CustomFont from "./panels/CustomFont";
+"use client";
+
+import { type ComponentType, lazy, Suspense } from "react";
+import { type DevSection, useDevSection } from "./DevProvider";
+
+/**
+ * Each panel is its own chunk — only the one the user actually picks
+ * gets fetched. Verifiable in the build output: these show up as
+ * separate lazily-loaded chunks, not bundled into the initial /dev
+ * payload.
+ */
+const PANELS: Record<DevSection, ComponentType> = {
+  overview: lazy(() => import("./panels/OverviewPanel")),
+  colors: lazy(() => import("./panels/ColorsPanel")),
+  typography: lazy(() => import("./panels/TypographyPanel")),
+  buttons: lazy(() => import("./panels/ButtonsPanel")),
+  forms: lazy(() => import("./panels/FormsPanel")),
+  surfaces: lazy(() => import("./panels/SurfacesPanel")),
+  styles: lazy(() => import("./panels/StylePanel")),
+};
+
+const PanelFallback = () => (
+  <div className="dev-page-header">
+    <div className="dev-page-eyebrow">Loading…</div>
+  </div>
+);
 
 const DevPage = () => {
+  const { activeSection } = useDevSection();
+  const ActivePanel = PANELS[activeSection];
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center gap-2">
-      <h1 className="font-serif text-4xl text-foreground">Hello Themes</h1>
-      <CustomFont />
-      <ThemeSwitch />
-      <ThemeToggle />
-    </div>
+    <Suspense fallback={<PanelFallback />}>
+      <ActivePanel />
+    </Suspense>
   );
 };
 

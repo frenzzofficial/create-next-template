@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import Script from "next/script";
 import AppClientLayout from "@/components/layouts/AppClientLayout";
-import { THEME } from "@/packages/configs/app.config";
+import { appConfig } from "@/packages/configs/app.config";
 import { getThemeFontClassName } from "@/packages/utils/fonts";
 import { themeInitScript } from "@/packages/utils/theme";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${getThemeFontClassName(THEME)} h-full antialiased`}
+      className={`${getThemeFontClassName(appConfig.site.Style)} h-full antialiased`}
     >
       <head>
         {/* Runs before hydration so the correct .dark class is applied

@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 
-import { THEME } from "@/packages/configs/app.config";
+import { appConfig } from "@/packages/configs/app.config";
 
 import {
   STYLE_THEMES,
@@ -37,6 +37,7 @@ export const StyleProvider = ({ children }: { children: ReactNode }) => {
   // Starts at the server-rendered THEME (matches layout.tsx's
   // data-theme attribute) so there's no hydration mismatch. Any stored
   // preference is applied after mount, client-side only.
+  const THEME = appConfig.site.Style as StyleThemeName;
   const [currentTheme, setCurrentTheme] = useState<StyleThemeName>(() => {
     if (typeof window === "undefined") {
       return THEME;

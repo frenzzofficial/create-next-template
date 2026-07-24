@@ -33,6 +33,7 @@ export type StyleTheme = {
   src: string;
 };
 
+// REGISTER YOUR OWN THEMES HERE
 export const STYLE_THEMES = [
   {
     name: "cosmic-night",
