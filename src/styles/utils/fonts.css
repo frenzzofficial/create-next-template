@@ -1,0 +1,8 @@
+/* Personal/brand/custom font — always available as `font-brilliant`, regardless
+  of the active theme. See packages/configs/fonts.config.ts. */
+
+@theme inline {
+  --font-brilliant: var(--font-brilliant-performer);
+  --font-ligature: var(--font-consolas-ligaturized-v2);
+  --font-georgia: var(--font-georgia);
+}
