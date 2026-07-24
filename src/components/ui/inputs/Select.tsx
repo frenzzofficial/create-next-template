@@ -11,12 +11,25 @@ type SelectOption = { label: string; value: string };
  */
 type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement> & {
   label?: string;
+  defualtChecked?: boolean;
   options: SelectOption[];
   error?: string;
 };
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({ label, options, error, className, id, required, ...props }, ref) => {
+  (
+    {
+      label,
+      options,
+      error,
+      className,
+      id,
+      defualtChecked,
+      required,
+      ...props
+    },
+    ref,
+  ) => {
     const generatedId = React.useId();
     const selectId = id ?? generatedId;
     const errorId = `${selectId}-error`;
@@ -47,7 +60,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           aria-describedby={error ? errorId : undefined}
           {...props}
         >
-          <option value="">Select...</option>
+          {defualtChecked ? <option value="">Select...</option> : null}
           {options.map((opt) => (
             <option key={opt.value} value={opt.value}>
               {opt.label}

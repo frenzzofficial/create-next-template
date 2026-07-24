@@ -20,6 +20,11 @@ export const appConfig = Object.freeze({
     Theme: envClientConfig.ACTIVE_THEME,
     ogImageUrl: envClientConfig.OG_IMAGE_URL,
   },
+  socialMedia: {
+    twitter: envClientConfig.TWITTER,
+    github: envClientConfig.GITHUB,
+    linkedin: envClientConfig.LINKEDIN,
+  },
   routes: {
     home: "/",
     api: "/api",

@@ -1,66 +1,146 @@
-/* LINK (THEME-AWARE + ANIMATED)
-   Tokens are OKLCH (see globals.css), so every color below reads the
-   custom property directly via var(--x) — never hsl(var(--x)), which is
-   invalid once the variable already holds a full oklch(...) value. */
-
+/* Base Link */
 .Link {
   position: relative;
-  display: inline-block;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  padding-bottom: 2px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
   transition:
     color 0.25s ease,
+    background-color 0.25s ease,
     opacity 0.2s ease;
 }
 
-/* Animated underline */
-.Link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--primary);
-  transition:
-    width 0.3s ease,
-    left 0.3s ease;
-}
-
-.Link:hover {
-  color: var(--primary);
-  opacity: 0.9;
-}
-
-.Link:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-/* Active (click feedback) */
 .Link:active {
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
-/* Focus (accessibility) */
 .Link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--ring);
-  border-radius: 4px;
+  border-radius: calc(var(--radius) - 2px);
 }
 
-/* Optional modifier: <Link className="link-accent" /> for links that should
-   use the accent token instead of primary (e.g. inside a colored banner).
-   NOTE: previously written as `Link.link-accent::after` (missing the dot),
-   which targeted a nonexistent <Link> element instead of the .Link class —
-   the rule below never matched anything. */
-.Link.link-accent {
-  color: var(--accent);
+/* Primary */
+.Link-primary {
+  color: var(--primary);
 }
 
-.Link.link-accent::after {
+.Link-primary::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  height: 2px;
+  background: var(--primary);
+  transition:
+    width 0.28s ease,
+    left 0.28s ease,
+    right 0.28s ease;
+}
+
+/* Left → Right */
+.Link-left::after {
+  left: 0;
+  width: 0;
+}
+
+.Link-left:hover::after {
+  width: 100%;
+}
+
+/* Right → Left */
+.Link-right::after {
+  right: 0;
+  width: 0;
+}
+
+.Link-right:hover::after {
+  width: 100%;
+}
+
+/* Center → Both sides */
+.Link-center::after {
+  left: 50%;
+  width: 0;
+  transform: translateX(-50%);
+}
+
+.Link-center:hover::after {
+  width: 100%;
+}
+
+/* Secondary */
+.Link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: var(--radius);
+
+  background: transparent;
+  color: color-mix(in oklch, var(--foreground) 85%, transparent);
+
+  text-decoration: none;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.Link-secondary:hover {
   background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.Link-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.Link-secondary:active {
+  opacity: 0.85;
+}
+
+/* Active state (works with next/link + clsx/cn) */
+.Link-secondary.active,
+.Link-secondary[aria-current="page"] {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Optional Dot/Icon */
+.Link-secondary .Link-dot {
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--foreground) 35%, transparent);
+  transition: background-color 150ms ease;
+}
+
+.Link-secondary:hover .Link-dot,
+.Link-secondary.active .Link-dot,
+.Link-secondary[aria-current="page"] .Link-dot {
+  background: var(--primary);
+}
+
+/* Neutral */
+.Link-neutral {
+  color: inherit;
+}
+
+.Link-neutral::after {
+  display: none;
+}
+
+.Link-neutral:hover {
+  color: inherit;
+  background: transparent;
 }

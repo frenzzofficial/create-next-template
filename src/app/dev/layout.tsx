@@ -1,6 +1,5 @@
 import "./dev.css";
 import type { ReactNode } from "react";
-import ThemeToggle from "@/components/layouts/ThemeToggle";
 import { DevProvider } from "./DevProvider";
 import DevSidebarNav from "./DevSidebarNav";
 
@@ -16,7 +15,8 @@ import DevSidebarNav from "./DevSidebarNav";
  * letting them share one `activeSection` value.
  */
 const DevLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
-  if (process.env.NODE_ENV === "production") return null;
+  // disable in production for real apps
+  // if (process.env.NODE_ENV === "production") return null;
 
   return (
     <DevProvider>
@@ -24,18 +24,6 @@ const DevLayout = ({ children }: Readonly<{ children: ReactNode }>) => {
         <DevSidebarNav />
 
         <div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-              justifyContent: "flex-end",
-              padding: "1rem 1.5rem 0",
-            }}
-          >
-            <ThemeToggle />
-          </div>
-
           <main className="dev-content">{children}</main>
         </div>
       </div>

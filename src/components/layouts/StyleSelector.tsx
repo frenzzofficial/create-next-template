@@ -1,44 +1,29 @@
 "use client";
-import { ChevronDown, Palette } from "lucide-react";
+
+import { ChevronDown } from "lucide-react";
 import { useStyleTheme } from "../providers/StyleProvider";
+import { Select } from "../ui";
 
 const StyleSelector = () => {
   const { currentTheme, setTheme, themes } = useStyleTheme();
 
   return (
-    <div className="relative">
-      <Palette className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-
-      <select
+    <div className="relative p-4">
+      <Select
+        name="theme"
         value={currentTheme}
-        onChange={(event) =>
+        label=""
+        error=""
+        defaultChecked={true}
+        options={themes.map((theme) => ({
+          label: theme.label,
+          value: theme.name,
+        }))}
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) =>
           setTheme(event.target.value as typeof currentTheme)
         }
-        className="
-            appearance-none
-            rounded-lg
-            border
-            border-border
-            bg-background
-            py-2
-            pr-10
-            pl-10
-            text-sm
-            text-foreground
-            outline-none
-            transition-colors
-            hover:border-primary
-            focus:border-primary
-            focus:ring-2
-            focus:ring-primary/20
-          "
-      >
-        {themes.map((theme) => (
-          <option key={theme.name} value={theme.name}>
-            {theme.label}
-          </option>
-        ))}
-      </select>
+        className="pl-10 pr-10"
+      />
 
       <ChevronDown className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-muted-foreground" />
     </div>

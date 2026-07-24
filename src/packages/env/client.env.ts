@@ -11,7 +11,7 @@ import { STYLES_THEME_NAMES } from "../configs/styles.config";
  */
 const clientEnvSchema = z.object({
   // App identity
-  NEXT_PUBLIC_APP_NAME: z.string().min(1).default("create-next-app"),
+  NEXT_PUBLIC_APP_NAME: z.string().min(1).default("create-next-template"),
   NEXT_PUBLIC_APP_VERSION: z.string().default("1.0.0"),
   NEXT_PUBLIC_API_PATH: z.string().default("/api"),
 
@@ -47,6 +47,20 @@ const clientEnvSchema = z.object({
     .url()
     .trim()
     .default("http://localhost:7164/app"),
+
+  // social media
+  NEXT_PUBLIC_TWITTER: z
+    .string()
+    .trim()
+    .default("https://twitter.com/frenzzofficial"),
+  NEXT_PUBLIC_GITHUB: z
+    .string()
+    .trim()
+    .default("https://github.com/frenzzofficial"),
+  NEXT_PUBLIC_LINKEDIN: z
+    .string()
+    .trim()
+    .default("https://www.linkedin.com/company/frenzz/"),
 });
 
 /**
@@ -71,6 +85,10 @@ const rawClientEnv = {
 
   NEXT_PUBLIC_CLIENT_ORIGIN: process.env.NEXT_PUBLIC_CLIENT_ORIGIN,
   NEXT_PUBLIC_CLIENT_API_ORIGIN: process.env.NEXT_PUBLIC_CLIENT_API_ORIGIN,
+
+  NEXT_PUBLIC_TWITTER: process.env.NEXT_PUBLIC_TWITTER,
+  NEXT_PUBLIC_GITHUB: process.env.NEXT_PUBLIC_GITHUB,
+  NEXT_PUBLIC_LINKEDIN: process.env.NEXT_PUBLIC_LINKEDIN,
 };
 
 /**
@@ -109,6 +127,10 @@ export const envClientConfig = Object.freeze({
 
   CLIENT_ORIGIN: parsedClientEnv.data.NEXT_PUBLIC_CLIENT_ORIGIN,
   CLIENT_API_ORIGIN: parsedClientEnv.data.NEXT_PUBLIC_CLIENT_API_ORIGIN,
+
+  TWITTER: parsedClientEnv.data.NEXT_PUBLIC_TWITTER,
+  GITHUB: parsedClientEnv.data.NEXT_PUBLIC_GITHUB,
+  LINKEDIN: parsedClientEnv.data.NEXT_PUBLIC_LINKEDIN,
 });
 
 /**

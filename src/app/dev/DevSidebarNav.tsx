@@ -1,5 +1,6 @@
 "use client";
 
+import { Button, Link } from "@/components/ui";
 import { cn } from "@/packages/utils/cn";
 import { type DevSection, useDevSection } from "./DevProvider";
 
@@ -43,9 +44,10 @@ const DevSidebarNav = () => {
           <div className="dev-nav-label">{section.label}</div>
 
           {section.items.map((item) => (
-            <button
+            <Button
               key={item.id}
               type="button"
+              variant="outline"
               onClick={() => setActiveSection(item.id)}
               className={cn(
                 "dev-nav-link",
@@ -55,15 +57,15 @@ const DevSidebarNav = () => {
             >
               <span className="dev-nav-dot" />
               {item.label}
-            </button>
+            </Button>
           ))}
         </div>
       ))}
 
       <div className="dev-sidebar-footer">
-        <a href="/" className="dev-sidebar-back">
+        <Link href="/" variant="primary">
           ← Back to site
-        </a>
+        </Link>
       </div>
     </nav>
   );

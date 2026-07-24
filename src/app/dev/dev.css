@@ -90,39 +90,9 @@
   color: color-mix(in oklch, var(--sidebar-foreground) 55%, transparent);
 }
 
-.dev-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  width: 100%;
-  padding: 0.5rem 0.6rem;
-  border: none;
-  border-radius: var(--radius);
-  background: transparent;
-  font: inherit;
-  font-size: 0.875rem;
-  color: color-mix(in oklch, var(--sidebar-foreground) 85%, transparent);
-  text-decoration: none;
-  text-align: left;
-  cursor: pointer;
-  transition:
-    background-color 150ms ease,
-    color 150ms ease;
-}
-
-.dev-nav-link:hover {
-  background: var(--sidebar-accent);
-  color: var(--sidebar-accent-foreground);
-}
-
-.dev-nav-link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--sidebar-primary);
-}
-
 .dev-nav-link.active {
-  background: var(--sidebar-accent);
-  color: var(--sidebar-primary-foreground);
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 .dev-nav-dot {
@@ -134,7 +104,7 @@
 }
 
 .dev-nav-link.active .dev-nav-dot {
-  background: var(--sidebar-primary);
+  background: var(--primary);
 }
 
 .dev-sidebar-footer {
