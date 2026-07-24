@@ -1,9 +1,12 @@
 {
   "name": "create-next-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A top 1% Next.js template for building modern apps.",
   "private": true,
   "scripts": {
+    "themes:build": "bun run src/packages/scripts/build-themes.ts",
+    "predev": "bun run themes:build",
+    "prebuild": "bun run themes:build",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",

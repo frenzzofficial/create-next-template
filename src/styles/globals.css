@@ -6,3 +6,11 @@
 @import "./utils/fonts.css";
 @import "./utils/typography.css";
 @import "./utils/theme.css";
+
+/*
+ * Auto-generated list of `@import "../themes/<name>.css";` lines — one per
+ * file in styles/themes/. Never edit this import list by hand; it's
+ * rewritten by scripts/build-themes.ts every time a theme file is added,
+ * removed, or renamed. See styles/README.md.
+ */
+@import "./.generated/theme-imports.css";
