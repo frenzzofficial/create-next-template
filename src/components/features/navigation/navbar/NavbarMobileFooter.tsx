@@ -8,7 +8,7 @@ const NavbarMobileFooter = () => {
   const { setMobileMenuOpen } = useNavigationActions();
 
   return (
-    <div className="mobile-drawer-footer">
+    <div>
       <Link
         href={appConfig.routes.signin}
         className="btn primary-btn mobile-sign-btn"

@@ -63,6 +63,8 @@ export type Variants =
   | "success"
   | "link";
 
+export type LinkVariants = "primary" | "secondary" | "neutral";
+
 export type Position = "top" | "left" | "right" | "bottom";
 
 export type ResolvedXPosition = Exclude<Position, "top" | "bottom">;

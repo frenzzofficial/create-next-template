@@ -420,34 +420,11 @@
   color: var(--muted-foreground);
 }
 
-.site-footer-social {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.site-footer-social-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius);
-  color: var(--muted-foreground);
-  background: var(--muted);
-  transition:
-    color 150ms ease,
-    background-color 150ms ease;
-}
-
-.site-footer-social-link:hover {
-  color: var(--accent-foreground);
-  background: var(--accent);
-}
-
-.site-footer-social-link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
-}
+/* Site-footer social icons (.site-footer-social / .site-footer-social-link
+   / .site-footer-tooltip) are NOT styled here — Footer.tsx renders them
+   through <SocialLinks /> (components/layouts/SocialLinks.tsx), which
+   owns those class names via its own styles/layouts/social-links.css.
+   Keep that split: don't redefine them in this file too. */
 
 .site-footer-nav {
   display: grid;

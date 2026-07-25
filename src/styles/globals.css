@@ -22,3 +22,5 @@
  * removed, or renamed. See styles/README.md.
  */
 @import "./.generated/theme-imports.css";
+
+@custom-variant dark (&:is(.dark *));

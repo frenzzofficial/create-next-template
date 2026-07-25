@@ -4,7 +4,7 @@ import { useDevSection } from "../DevProvider";
 
 const STATS = [
   { value: "54", label: "design tokens" },
-  { value: "6", label: "button variants" },
+  { value: "7", label: "button variants" },
   { value: "6", label: "input types" },
   { value: "3", label: "typefaces" },
 ];

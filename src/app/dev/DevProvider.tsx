@@ -9,7 +9,8 @@ export type DevSection =
   | "buttons"
   | "forms"
   | "surfaces"
-  | "styles";
+  | "styles"
+  | "Links";
 
 type DevContextValue = {
   activeSection: DevSection;

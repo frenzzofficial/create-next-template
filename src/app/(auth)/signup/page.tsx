@@ -9,12 +9,7 @@ const SignUpPage = () => {
         marginTop: "100px",
       }}
     >
-      <Link
-        href="/"
-        className="text-primary decoration-solid underline-offset-4 transition hover:underline"
-      >
-        Return to Homepage
-      </Link>
+      <Link href="/">Return to Homepage</Link>
 
       <div className="w-9/10 md:w-3/5 max-w-md">
         <SignUpForm />

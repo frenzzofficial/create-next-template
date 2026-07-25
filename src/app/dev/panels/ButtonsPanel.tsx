@@ -9,6 +9,7 @@ const BUTTON_VARIANTS: Variants[] = [
   "outline",
   "danger",
   "success",
+  "link",
 ];
 
 const ButtonsPanel = () => {
@@ -18,7 +19,7 @@ const ButtonsPanel = () => {
         <div className="dev-page-eyebrow">Design system</div>
         <h1 className="dev-page-title">Buttons</h1>
         <p className="dev-page-lede">
-          Six variants, one shared <code>.btn</code> base class for
+          Seven variants, one shared <code>.btn</code> base class for
           layout/motion — see <code>components/ui/buttons/Button.tsx</code>.
         </p>
       </div>

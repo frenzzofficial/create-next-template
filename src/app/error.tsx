@@ -41,17 +41,15 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
         )}
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <Button
-            onClick={reset}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:opacity-90"
-          >
+          <Button onClick={reset} variant="primary" className="flex-1">
             <RefreshCw className="h-4 w-4" />
             Try Again
           </Button>
 
           <Button
             onClick={() => router.push("/")}
-            className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition hover:bg-accent"
+            variant="outline"
+            className="flex-1"
           >
             <Home className="h-4 w-4" />
             Go Home

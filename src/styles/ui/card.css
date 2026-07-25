@@ -1,7 +1,10 @@
 /* -----------------------------------------------------------------------------
-   Card surface — not consumed by a component yet (shadcn's Card lands in
-   Stage 9), but the token-driven surface style is ready for whenever a
-   custom Card is built. Apply className="card" to get this treatment.
+   Card surface — consumed by components/ui/card/Card.tsx (variants:
+   "static" / "interactive", plus an optional "flush" modifier). Used
+   throughout the app (auth forms, contact form, the Surfaces panel in
+   /dev) as the one card-shaped surface everything renders through.
+   Superseding this with shadcn's Card (Stage 9) is still on the table —
+   until then, this is the real, in-use implementation, not a draft.
    ----------------------------------------------------------------------------- */
 
 .card {
@@ -49,13 +52,4 @@
 .card-description {
   font-size: 0.875rem;
   color: var(--muted-foreground);
-}
-
-.card-footer {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: auto;
-  padding-top: 0.5rem;
-  border-top: 1px solid var(--border);
 }

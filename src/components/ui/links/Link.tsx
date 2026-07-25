@@ -1,12 +1,13 @@
 import NextLink, { type LinkProps as NextLinkProps } from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { cn } from "@/packages/utils/cn";
+import type { LinkVariants, Position } from "@/types/app";
 
 type LinkProps = NextLinkProps &
   Omit<ComponentPropsWithoutRef<"a">, keyof NextLinkProps> & {
     label?: ReactNode;
-    variant?: "primary" | "secondary" | "neutral";
-    direction?: "left" | "right" | "center";
+    variant?: LinkVariants;
+    direction?: Omit<Position, "top" | "bottom">;
   };
 
 const Link = ({

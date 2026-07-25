@@ -23,6 +23,7 @@ const NAV_SECTIONS: {
   {
     label: "Components",
     items: [
+      { label: "Links", id: "Links" },
       { label: "Buttons", id: "buttons" },
       { label: "Form controls", id: "forms" },
       { label: "Surfaces", id: "surfaces" },
