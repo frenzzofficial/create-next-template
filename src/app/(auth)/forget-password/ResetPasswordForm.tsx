@@ -21,7 +21,7 @@ const ResetPasswordForm = () => {
     console.log("Reset-Password form submitted data:", data);
 
     startTransition(() => {
-      router.push(appConfig.routes.signin);
+      router.push(appConfig.api.auth.email.signout);
     });
   };
 

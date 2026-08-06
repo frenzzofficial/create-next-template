@@ -52,8 +52,8 @@ export const mainNav: NavTab[] = [
 ];
 
 export const authNav: NavItem[] = [
-  { label: "Sign in", href: appConfig.routes.signin },
-  { label: "Sign up", href: appConfig.routes.signup },
+  { label: "Sign in", href: appConfig.routes.auth.signin },
+  { label: "Sign up", href: appConfig.routes.auth.signup },
 ];
 
 export const footerNav: NavSection[] = [
@@ -76,9 +76,9 @@ export const footerNav: NavSection[] = [
   {
     title: "Account",
     items: [
-      { label: "Sign in", href: appConfig.routes.signin },
-      { label: "Sign up", href: appConfig.routes.signup },
-      { label: "Forget password", href: appConfig.routes.forgotPassword },
+      { label: "Sign in", href: appConfig.routes.auth.signin },
+      { label: "Sign up", href: appConfig.routes.auth.signup },
+      { label: "Forget password", href: appConfig.routes.auth.forgotPassword },
     ],
   },
 ];

@@ -20,7 +20,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${getThemeFontClassName(appConfig.site.Style)} h-full antialiased`}
+      className={`${getThemeFontClassName(appConfig.site.style)} h-full antialiased`}
     >
       <head>
         {/* Runs before hydration so the correct .dark class is applied

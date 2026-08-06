@@ -1,45 +1,105 @@
-import { envClientConfig } from "@/packages/env/client.env";
-/**
- * config.app.ts
- * --------------------------------------------------------------
- * Non-secret, non-environment app constants.
- */
+import { envAppConfig } from "../env/app.env";
+import { envClientConfig } from "../env/client.env";
+import { envPublicConfig } from "../env/public.env";
+import { createRoutes } from "../utils/endpoint";
+
+const api = `${envClientConfig.CLIENT_ORIGIN}/${envClientConfig.CLIENT_PREFIX}`;
 
 export const appConfig = Object.freeze({
-  name: envClientConfig.APP_NAME,
-  version: envClientConfig.APP_VERSION,
-  locale: "en",
-  defaultPageSize: 20,
+  app: {
+    name: envPublicConfig.APP_NAME,
+    version: envPublicConfig.APP_VERSION,
+    description: envPublicConfig.APP_DESCRIPTION,
+    environment: envAppConfig.NODE_ENV,
+
+    locale: "en",
+    timezone: "UTC",
+  },
+
   site: {
-    url: envClientConfig.SITE_URL,
-    name: envClientConfig.SITE_NAME,
-    title: envClientConfig.SITE_TITLE,
-    description: envClientConfig.SITE_DESCRIPTION,
-    logoUrl: envClientConfig.LOGO_URL,
-    Style: envClientConfig.ACTIVE_STYLE,
-    Theme: envClientConfig.ACTIVE_THEME,
-    ogImageUrl: envClientConfig.OG_IMAGE_URL,
+    url: envPublicConfig.SITE_URL,
+    name: envPublicConfig.APP_NAME,
+    title: envPublicConfig.SITE_TITLE,
+    description: envPublicConfig.APP_DESCRIPTION,
+
+    logoUrl: envPublicConfig.LOGO_URL,
+    ogImageUrl: envPublicConfig.OG_IMAGE_URL,
+
+    style: envPublicConfig.ACTIVE_STYLE,
+    theme: envPublicConfig.ACTIVE_THEME,
   },
+
+  logging: {
+    enabled: envAppConfig.NODE_ENV !== "production",
+    stackTrace: envAppConfig.NODE_ENV !== "production",
+  },
+
+  headers: {
+    requestId: "X-Request-Id",
+    traceId: "X-Trace-Id",
+    poweredBy: "X-Powered-By",
+  },
+
+  pagination: {
+    defaultPage: 1,
+    defaultLimit: 20,
+    maxLimit: 100,
+  },
+
   socialMedia: {
-    twitter: envClientConfig.TWITTER,
-    github: envClientConfig.GITHUB,
-    linkedin: envClientConfig.LINKEDIN,
+    twitter: envPublicConfig.TWITTER,
+    github: envPublicConfig.GITHUB,
+    linkedin: envPublicConfig.LINKEDIN,
   },
+
   routes: {
     home: "/",
-    api: "/api",
-    signin: "/signin",
-    signup: "/signup",
-    signout: "/signout",
-    forgotPassword: "/forget-password",
+    about: "/about",
+
+    docs: "/documentation",
+    openapi: "/openapi",
+
+    robots: "/robots.txt",
+    sitemap: "/sitemap.xml",
+    favicon: "/favicon.ico",
+
+    blogs: "/blogs",
+    contact: "/contact",
+    careers: "/careers",
     dashboard: "/dashboard",
     profile: "/profile",
-    blogs: "/blogs",
-    about: "/about",
-    careers: "/careers",
-    contact: "/contact",
+
+    auth: {
+      signup: "/signup",
+      signin: "/signin",
+      signout: "/signout",
+      forgotPassword: "/forgot-password",
+    },
   },
-  keywords: ["bun", "typescript", "next.js", "react.js", "frontend"],
+
+  api: {
+    auth: {
+      email: createRoutes(`${api}/auth/email`, {
+        signin: "/signin",
+        signup: "/signup",
+        signout: "/signout",
+        refresh: "/refresh",
+        me: "/me",
+        verifyEmail: "/verify-email",
+        forgotPassword: "/forgot-password",
+        resetPassword: "/reset-password",
+      }),
+
+      phone: createRoutes(`${api}/auth/phone`, {
+        signin: "/signin",
+        signup: "/signup",
+        sendOtp: "/send-otp",
+        verifyOtp: "/verify-otp",
+      }),
+    },
+  },
+
+  keywords: ["next.js", "react", "typescript", "frontend", "template"],
 });
 
 export type AppConfig = typeof appConfig;

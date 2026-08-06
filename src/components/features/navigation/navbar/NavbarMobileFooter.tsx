@@ -10,7 +10,7 @@ const NavbarMobileFooter = () => {
   return (
     <div>
       <Link
-        href={appConfig.routes.signin}
+        href={appConfig.routes.auth.signin}
         className="btn primary-btn mobile-sign-btn"
         onClick={() => setMobileMenuOpen(false)}
       >

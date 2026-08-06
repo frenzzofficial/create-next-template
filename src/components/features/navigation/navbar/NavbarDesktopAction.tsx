@@ -15,7 +15,7 @@ const NavbarDesktopAction = () => {
   return (
     <div className="header-actions">
       <ThemeToggle />
-      <Link href={appConfig.routes.signin}>Sign In</Link>
+      <Link href={appConfig.routes.auth.signin}>Sign In</Link>
 
       {/* Mobile Menu Toggle Burger Button */}
       <Button
