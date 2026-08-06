@@ -1,5 +1,5 @@
-const HomePage = () => {
-  return <div>This is Our Home Page ...</div>;
-};
+import Hero from "./Hero";
 
-export default HomePage;
+export default function HomePage() {
+  return <Hero />;
+}

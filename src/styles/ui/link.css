@@ -1,39 +1,62 @@
-/* Base Link */
-.Link {
+/* ==========================================================================
+   Base link
+   ========================================================================== */
+
+.link {
   position: relative;
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  cursor: pointer;
+  gap: 0.35rem;
+
+  font: inherit;
   font-size: 0.95rem;
   font-weight: 500;
+  line-height: 1.2;
+
+  color: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+  user-select: none;
+
   transition:
-    color 0.25s ease,
-    background-color 0.25s ease,
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
     opacity 0.2s ease;
 }
 
-.Link:active {
+.link:active {
   opacity: 0.75;
 }
 
-.Link:focus-visible {
+.link:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px var(--ring);
   border-radius: calc(var(--radius) - 2px);
 }
 
-/* Primary */
-.Link-primary {
+/* ==========================================================================
+   PRIMARY link
+   Text link with animated underline.
+   Same behaviour as `.link-btn`
+   ========================================================================== */
+
+.link-primary {
   color: var(--primary);
 }
 
-.Link-primary::after {
+.link-primary::after {
   content: "";
+
   position: absolute;
   bottom: -2px;
+
   height: 2px;
-  background: var(--primary);
+  width: 0;
+
+  background: currentColor;
+
   transition:
     width 0.28s ease,
     left 0.28s ease,
@@ -41,106 +64,213 @@
 }
 
 /* Left → Right */
-.Link-left::after {
+
+.link-left::after {
   left: 0;
-  width: 0;
 }
 
-.Link-left:hover::after {
+.link-left:hover::after {
   width: 100%;
 }
 
 /* Right → Left */
-.Link-right::after {
+
+.link-right::after {
   right: 0;
-  width: 0;
 }
 
-.Link-right:hover::after {
+.link-right:hover::after {
   width: 100%;
 }
 
-/* Center → Both sides */
-.Link-center::after {
+/* Center */
+
+.link-center::after {
   left: 50%;
-  width: 0;
   transform: translateX(-50%);
 }
 
-.Link-center:hover::after {
+.link-center:hover::after {
   width: 100%;
 }
 
-/* Secondary */
-.Link-secondary {
+/* ==========================================================================
+   SECONDARY link
+   Navigation style
+   ========================================================================== */
+
+.link-secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
 
   padding: 0.5rem 0.75rem;
-  border: none;
+
   border-radius: var(--radius);
 
-  background: transparent;
   color: color-mix(in oklch, var(--foreground) 85%, transparent);
-
-  text-decoration: none;
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
 
   transition:
     background-color 150ms ease,
     color 150ms ease;
 }
 
-.Link-secondary:hover {
+.link-secondary:hover,
+.link-secondary.active,
+.link-secondary[aria-current="page"] {
   background: var(--accent);
   color: var(--accent-foreground);
 }
 
-.Link-secondary:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
-}
-
-.Link-secondary:active {
-  opacity: 0.85;
-}
-
-/* Active state (works with next/link + clsx/cn) */
-.Link-secondary.active,
-.Link-secondary[aria-current="page"] {
-  background: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* Optional Dot/Icon */
-.Link-secondary .Link-dot {
+.link-secondary .link-dot {
   width: 5px;
   height: 5px;
+
   flex-shrink: 0;
   border-radius: 999px;
+
   background: color-mix(in oklch, var(--foreground) 35%, transparent);
+
   transition: background-color 150ms ease;
 }
 
-.Link-secondary:hover .Link-dot,
-.Link-secondary.active .Link-dot,
-.Link-secondary[aria-current="page"] .Link-dot {
+.link-secondary:hover .link-dot,
+.link-secondary.active .link-dot,
+.link-secondary[aria-current="page"] .link-dot {
   background: var(--primary);
 }
 
-/* Neutral */
-.Link-neutral {
+/* ==========================================================================
+   NEUTRAL link
+   ========================================================================== */
+
+.link-neutral {
   color: inherit;
 }
 
-.Link-neutral::after {
+.link-neutral::after {
   display: none;
 }
 
-.Link-neutral:hover {
+.link-neutral:hover {
   color: inherit;
   background: transparent;
+}
+
+/* ==========================================================================
+   Button link (Primary)
+   ========================================================================== */
+
+.link-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  padding: 0.65rem 1.2rem;
+
+  border: 1px solid color-mix(in oklch, var(--primary) 25%, transparent);
+  border-radius: var(--radius);
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    color-mix(in oklch, var(--primary) 75%, transparent)
+  );
+
+  color: var(--primary-foreground);
+
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease,
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+/* Shine */
+
+.link-button::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: -75%;
+
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+}
+
+.link-button:hover::before {
+  animation: link-button-shine 0.9s ease forwards;
+}
+
+@keyframes link-button-shine {
+  to {
+    left: 125%;
+  }
+}
+
+/* Hover */
+
+.link-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 10px 25px color-mix(in oklch, var(--primary) 35%, transparent),
+    0 0 0 1px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Active */
+
+.link-button:active {
+  transform: scale(0.96);
+
+  box-shadow: 0 5px 12px color-mix(in oklch, var(--primary) 25%, transparent);
+}
+
+/* Focus */
+
+.link-button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 2px var(--background),
+    0 0 0 4px var(--ring);
+}
+
+/* Disabled */
+
+.link-button[aria-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+
+  transform: none;
+  box-shadow: none;
 }

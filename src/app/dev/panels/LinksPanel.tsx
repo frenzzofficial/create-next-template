@@ -2,11 +2,16 @@ import { Link } from "@/components/ui";
 import type { LinkVariants, Position } from "@/types/app";
 import ComponentPreview from "./ComponentPreview";
 
-const LINKS_VARIANTS: LinkVariants[] = ["primary", "secondary", "neutral"];
+const LINKS_VARIANTS: LinkVariants[] = [
+  "primary",
+  "secondary",
+  "neutral",
+  "button",
+];
 const LINKS_DIRECTIONS: Omit<Position, "top" | "bottom">[] = [
   "left",
-  "right",
   "center",
+  "right",
 ];
 
 const LinksPanel = () => {
@@ -45,7 +50,7 @@ const LinksPanel = () => {
               direction={direction}
               href={"#"}
             >
-              {direction}
+              primary-{direction}
             </Link>
           ))}
         </ComponentPreview>

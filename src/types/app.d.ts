@@ -63,7 +63,7 @@ export type Variants =
   | "success"
   | "link";
 
-export type LinkVariants = "primary" | "secondary" | "neutral";
+export type LinkVariants = "primary" | "secondary" | "neutral" | "button";
 
 export type Position = "top" | "left" | "right" | "bottom";
 

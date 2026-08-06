@@ -57,6 +57,10 @@ const publicEnvSchema = z.object({
     .string()
     .trim()
     .default("https://www.linkedin.com/company/frenzz/"),
+
+  NEXT_PUBLIC_AUTHOR_NAME: z.string().trim().default("@frenzzofficial"),
+
+  NEXT_PUBLIC_AUTHOR_EMAIL: z.string().trim().default("contact@email.com"),
 });
 
 const parsedPublicEnv = publicEnvSchema.safeParse(process.env);
@@ -88,6 +92,9 @@ export const envPublicConfig = Object.freeze({
   TWITTER: parsedPublicEnv.data.NEXT_PUBLIC_TWITTER,
   GITHUB: parsedPublicEnv.data.NEXT_PUBLIC_GITHUB,
   LINKEDIN: parsedPublicEnv.data.NEXT_PUBLIC_LINKEDIN,
+
+  AUTHOR_NAME: parsedPublicEnv.data.NEXT_PUBLIC_AUTHOR_NAME,
+  AUTHOR_EMAIL: parsedPublicEnv.data.NEXT_PUBLIC_AUTHOR_EMAIL,
 });
 
 export type EnvPublicConfig = typeof envPublicConfig;

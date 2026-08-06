@@ -61,7 +61,7 @@ landed on top of it since:
   `packages/forms/form.types.ts`.
 - **Full auth flow (frontend only, no backend wired)** — sign in, sign up,
   and a complete forgot-password → OTP → reset-password sequence
-  (`app/(auth)/forget-password/{,verify-otp,reset-password}`), handing
+  (`app/(auth)/forgot-password/{,verify-otp,reset-password}`), handing
   state between steps via search params.
 - **`Background.tsx`** — scopes a color/gradient/image/slideshow background
   to whatever it wraps (a `<Hero />`, not the whole page). Slideshow variant

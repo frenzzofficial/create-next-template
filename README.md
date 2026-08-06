@@ -67,7 +67,7 @@ staged files automatically.
 ```text
 src/
 ├── app/                     # App Router routes, layouts, route groups
-│   ├── (auth)/                # signin, signup, forget-password (+ verify-otp, reset-password), signout
+│   ├── (auth)/                # signin, signup, forgot-password (+ verify-otp, reset-password), signout
 │   ├── (protected)/            # profile — layout only otherwise, no route guards yet
 │   ├── (public)/               # about, careers, contact
 │   ├── api/                   # route handlers (currently just /api/health)

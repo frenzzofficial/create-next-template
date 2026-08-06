@@ -78,7 +78,7 @@ export const footerNav: NavSection[] = [
     items: [
       { label: "Sign in", href: appConfig.routes.auth.signin },
       { label: "Sign up", href: appConfig.routes.auth.signup },
-      { label: "Forget password", href: appConfig.routes.auth.forgotPassword },
+      { label: "Forgot password", href: appConfig.routes.auth.forgotPassword },
     ],
   },
 ];

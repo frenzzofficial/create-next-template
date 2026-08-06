@@ -48,6 +48,7 @@ const SocialLinks = () => {
             rel="noopener noreferrer"
             aria-label={label}
             className="site-footer-social-link"
+            variant="neutral"
           >
             <Icon width={48} height={48} />
           </Link>

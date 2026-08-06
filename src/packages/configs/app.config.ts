@@ -11,7 +11,6 @@ export const appConfig = Object.freeze({
     version: envPublicConfig.APP_VERSION,
     description: envPublicConfig.APP_DESCRIPTION,
     environment: envAppConfig.NODE_ENV,
-
     locale: "en",
     timezone: "UTC",
   },
@@ -27,6 +26,11 @@ export const appConfig = Object.freeze({
 
     style: envPublicConfig.ACTIVE_STYLE,
     theme: envPublicConfig.ACTIVE_THEME,
+  },
+
+  author: {
+    name: envPublicConfig.AUTHOR_NAME,
+    email: envPublicConfig.AUTHOR_EMAIL,
   },
 
   logging: {
@@ -86,7 +90,7 @@ export const appConfig = Object.freeze({
         refresh: "/refresh",
         me: "/me",
         verifyEmail: "/verify-email",
-        forgotPassword: "/forgot-password",
+        forgetPassword: "/forget-password",
         resetPassword: "/reset-password",
       }),
 

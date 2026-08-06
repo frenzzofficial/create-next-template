@@ -22,9 +22,9 @@ const Link = ({
     <NextLink
       {...props}
       className={cn(
-        "Link",
-        `Link-${variant}`,
-        variant === "primary" && `Link-${direction}`,
+        "link",
+        `link-${variant}`,
+        variant === "primary" && `link-${direction}`,
         className,
       )}
     >

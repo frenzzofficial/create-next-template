@@ -9,7 +9,7 @@ const ForgetPasswordForm = () => {
   const [pending, startTransition] = useTransition();
 
   const submit = (data: unknown): void => {
-    console.log("Forget-Password form submitted data:", data); // 👈 log the data
+    console.log("Forgot-Password form submitted data:", data); // 👈 log the data
 
     // Real flow: request a reset code from the backend here. No backend
     // yet (frontend-only for now) — move straight to the OTP step,
