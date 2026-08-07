@@ -90,7 +90,7 @@ export const appConfig = Object.freeze({
         refresh: "/refresh",
         me: "/me",
         verifyEmail: "/verify-email",
-        forgetPassword: "/forget-password",
+        forgotPassword: "/forgot-password",
         resetPassword: "/reset-password",
       }),
 
