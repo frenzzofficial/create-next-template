@@ -1,10 +1,8 @@
 "use client";
-
-import {
-  BREAKPOINTS,
-  type BreakpointKey,
-} from "@/packages/configs/theme.config";
+import { appConfig } from "@/packages/configs/app.config";
 import { useMediaQuery } from "./useMediaQuery";
+
+const BREAKPOINTS = appConfig.breakpoints;
 
 type UseBreakpointsResult = {
   /** `true` once viewport width >= each breakpoint's threshold. */
@@ -12,7 +10,7 @@ type UseBreakpointsResult = {
   isMd: boolean;
   isLg: boolean;
   isXl: boolean;
-  is2xl: boolean;
+  isxxl: boolean;
   /** Convenience aliases matching common device-class naming. */
   isMobile: boolean;
   isTablet: boolean;
@@ -40,18 +38,23 @@ export const useBreakpoints = (): UseBreakpointsResult => {
   const isMd = useMediaQuery(`(min-width: ${BREAKPOINTS.md}px)`);
   const isLg = useMediaQuery(`(min-width: ${BREAKPOINTS.lg}px)`);
   const isXl = useMediaQuery(`(min-width: ${BREAKPOINTS.xl}px)`);
-  const is2xl = useMediaQuery(`(min-width: ${BREAKPOINTS["2xl"]}px)`);
+  const isxxl = useMediaQuery(
+    `(min-width: ${
+      // biome-ignore lint/complexity/useLiteralKeys: <>
+      BREAKPOINTS["xxl"]
+    }px)`,
+  );
 
   return {
     isSm,
     isMd,
     isLg,
     isXl,
-    is2xl,
+    isxxl,
     isMobile: !isMd,
     isTablet: isMd && !isLg,
     isDesktop: isLg,
   };
 };
-
+type BreakpointKey = keyof typeof BREAKPOINTS;
 export type { BreakpointKey };

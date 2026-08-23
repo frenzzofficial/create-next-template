@@ -56,6 +56,21 @@ export const appConfig = Object.freeze({
     linkedin: envPublicConfig.LINKEDIN,
   },
 
+  breakpoints: {
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    xxl: 1536,
+  },
+
+  motion_duration: {
+    instant: 100,
+    fast: 150,
+    base: 250,
+    slow: 400,
+  },
+
   routes: {
     home: "/",
     about: "/about",
