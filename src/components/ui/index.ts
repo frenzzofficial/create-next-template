@@ -1,6 +1,9 @@
 export { default as Button } from "./buttons/Button";
 export { default as Card } from "./card/Card";
+export { AlignmentContainer as Container } from "./containers/AlignmentContainer";
+export { ShadowContainer } from "./containers/ShadowContainer";
 export { default as Drawer } from "./drawer/Drawer";
+export { default as LucideIcon } from "./icon/LucidIcon";
 export { default as ImageComponent } from "./images/ImageComponent";
 export { default as NavigationLogo } from "./images/NavigationLogo";
 export { default as Checkbox } from "./inputs/Checkbox";
