@@ -1,6 +1,6 @@
 import { Link } from "@/components/ui";
 import type { LinkVariants, Position } from "@/types/app";
-import ComponentPreview from "./ComponentPreview";
+import ComponentPreview from "../preview/ComponentPreview";
 
 const LINKS_VARIANTS: LinkVariants[] = [
   "primary",

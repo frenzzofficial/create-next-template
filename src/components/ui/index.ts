@@ -16,6 +16,7 @@ export { default as PasswordInput } from "./inputs/PasswordInput";
 export { default as Select } from "./inputs/Select";
 // Links, Icons, Images
 export { default as Link } from "./links/Link";
+export { default as Marquee } from "./marquee/Marquee";
 export { default as EyeClose } from "./svg/EyeClose";
 export { default as EyeOpen } from "./svg/EyeOpen";
 

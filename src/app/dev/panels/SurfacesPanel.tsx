@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui";
-import ComponentPreview from "./ComponentPreview";
+import ComponentPreview from "../preview/ComponentPreview";
 
 const SurfacesPanel = () => {
   return (

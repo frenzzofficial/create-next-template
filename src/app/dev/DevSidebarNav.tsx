@@ -27,6 +27,7 @@ const NAV_SECTIONS: {
       { label: "Buttons", id: "buttons" },
       { label: "Form controls", id: "forms" },
       { label: "Surfaces", id: "surfaces" },
+      { label: "Marquee", id: "marquee" },
     ],
   },
 ];

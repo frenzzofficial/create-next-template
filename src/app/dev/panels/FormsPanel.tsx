@@ -1,6 +1,6 @@
 import { Checkbox, Input, PasswordInput, Select } from "@/components/ui";
 import Textarea from "@/components/ui/inputs/Textarea";
-import ComponentPreview from "./ComponentPreview";
+import ComponentPreview from "../preview/ComponentPreview";
 
 const FormsPanel = () => {
   return (

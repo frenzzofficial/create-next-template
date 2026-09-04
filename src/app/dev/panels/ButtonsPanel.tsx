@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui";
 import type { Variants } from "@/types/app";
-import ComponentPreview from "./ComponentPreview";
+import ComponentPreview from "../preview/ComponentPreview";
 
 const BUTTON_VARIANTS: Variants[] = [
   "primary",
