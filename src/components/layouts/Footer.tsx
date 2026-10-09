@@ -1,10 +1,9 @@
 import appConfig from "@/packages/configs/app.config";
 import FooterNavbar from "../features/navigation/footer/FooterNavbar";
 import NavigationLogo from "../ui/images/NavigationLogo";
+import DateDisplay from "./Date";
 
 const Footer = () => {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="site-footer">
       <div className="site-footer-inner">
@@ -19,7 +18,8 @@ const Footer = () => {
 
         <div className="site-footer-bottom">
           <p className="site-footer-copyright">
-            &copy; {year} {appConfig.site.name}. All rights reserved.
+            &copy; <DateDisplay type="year" /> {appConfig.site.name}. All rights
+            reserved.
           </p>
         </div>
       </div>

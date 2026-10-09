@@ -1,10 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  poweredByHeader: false,
-  typescript: {
-    ignoreBuildErrors: false,
+  /* config options here */
+  cacheComponents: true,
+  partialPrefetching: true,
+  reactCompiler: true,
+  turbopack: {
+    rules: {
+      "*.css": {
+        loaders: ["@tailwindcss/turbopack"],
+        as: "*.css",
+      },
+    },
   },
   async headers() {
     return [
